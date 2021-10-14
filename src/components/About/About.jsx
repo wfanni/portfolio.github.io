@@ -169,11 +169,13 @@ const About = styled(AboutStructure)`
         }
     }
     // GOOD ONE
-    /* @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1000px) {
         h2 {
-            margin: 0 0 5vh 0;
+            position: relative;
+            margin: 5vh 0 5vh 0;
         }
         p {
+            line-height: 4.5vh;
 
             .title {
                 text-align: center;
@@ -192,9 +194,10 @@ const About = styled(AboutStructure)`
 
             .last-sentence {
                 text-align: justify;
+
             }
         }
-    } */
+    }
 
     /* @media screen and (max-width: 700px) {
         height: 120vh;

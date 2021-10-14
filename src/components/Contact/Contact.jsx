@@ -14,7 +14,7 @@ const ContactStructure = ({ className }) => {
                 <span>Budapest, Hungary</span>
                 <a href="https://www.linkedin.com/in/fanni-wihl/"><img src={linkedin} alt="linkedin-account" /></a>
             </div>
-                <img className="contact-photo" src={contact_photo} alt="contact" />
+            <img className="contact-photo" src={contact_photo} alt="contact" />
             
         </div>
     )
@@ -24,13 +24,14 @@ const Contact = styled(ContactStructure)`
     position: relative;
     width: 100%;
     height: 100vh;
+    /* max-height: 100vh; */
 
     background-image: url(${pattern});
 
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    gap: 5vw;
 
     h2 {
         position: absolute;
@@ -46,14 +47,14 @@ const Contact = styled(ContactStructure)`
     }
 
     div {
-        width: 20%;
-        margin-left: -80vh;
+        /* width: 100%; */
 
         display: flex;
         justify-content: center;
-        align-items: flex-end;
+        /* align-items: center; */
         flex-direction: column;
         gap: 5vh;
+        text-align: right;
 
         span {
             font-size: 1.5em;
@@ -62,6 +63,7 @@ const Contact = styled(ContactStructure)`
         a {
             width: 40px;
             img {
+                transform: translateX(10vw);
                 width: 100%;
                 transition: opacity 0.3s, transform 0.3s;
             }
@@ -69,7 +71,7 @@ const Contact = styled(ContactStructure)`
             &:hover {
                 img {
                     opacity: 0.8;
-                    transform: translateY(-5px);
+                    transform: translate(10vw,-5px);
                 }
             }
         }
@@ -78,30 +80,66 @@ const Contact = styled(ContactStructure)`
         
     }
     .contact-photo {
-        position: absolute;
-        top: 35vh;
-        right: 60vh;
+        margin-top: 10%;
+        width: 20%;
+
 
     }
     // GOOD ONE
-    /* @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1000px) {
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-around;
         h2 {
+            position: relative;
+            text-align: center;
             top: 10vh;
-            font-size: 1.5rem;
-            margin-left: -20vh;
+            font-size: 1.5em;
+            margin: 0 0 5% 0;
+
+            
+            span {
+                position: relative;
+                display: block;
+                right: 0;
+                margin-top: -10%;
+            }
         }
         div {
-            width: 50%;
-            margin-top: 30vh;
+            width: 100%;
+            margin: 5vh 0 -10vh 0;
+            align-items: center;
+            gap: 2vh;
+
+            a {
+                img {
+                    transform: translateX(0);
+                }
+
+                &:hover {
+                    img {
+                        opacity: 0.8;
+                        transform: none;
+                    }
+                }
+            }
+
+
+            span {
+                font-size: 1rem;
+
+            }
+            
         }
         .contact-photo {
             position: relative;
+            width: 50%;
             top: 0;
-            left: 30%;
-            order: 2;
-            width: 25%;
+            left: 0;
+            margin: 0 0 10vh 0;
+            
         }
-    } */
+    }
 
     /* @media screen and (max-width: 700px) {
         h2 {

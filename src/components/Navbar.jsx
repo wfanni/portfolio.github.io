@@ -6,11 +6,16 @@ const NavbarStructure = ({ className }) => {
     const menuToggle = () => {
         document.getElementById("menu").classList.toggle("open");
         document.querySelector("nav").classList.toggle("open");
+        document.querySelector("body").classList.toggle("stopScroll");
+
     }
 
     const closeMenu = () => {
         document.getElementById("menu").classList.remove("open");
         document.querySelector("nav").classList.remove("open");
+        document.querySelector("body").classList.remove("stopScroll");
+
+
     }
     
 
@@ -40,18 +45,20 @@ const NavbarStructure = ({ className }) => {
                     </li>
                 </ul>
             </nav>
+            {/* <div id="overlay"></div> */}
       </div>
     )
 }
 
 const Navbar = styled(NavbarStructure)`
+    width: 100%;
     #menu {
         display: none;
         position: fixed;
-        top: 4vh;
-        right: 4vh;
-        width: 75px;
-        height: 75px;
+        top: 2vh;
+        right: 2vh;
+        width: 50px;
+        height: 50px;
         border: none;
         border-radius: 50vh;
         background-color: #ff5d30;
@@ -59,27 +66,27 @@ const Navbar = styled(NavbarStructure)`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        gap: 7px;
+        gap: 5px;
 
         cursor: pointer;
         z-index: 1001;
 
         div {
             background-color: #fff;
-            width: 35px;
+            width: 25px;
             height: 3px;
             transition: transform 0.3s, opacity 0.3s;
         }
 
         &.open {
             #upper {
-                transform: rotate(45deg) translate(6.5px, 7px);
+                transform: rotate(45deg) translate(5.5px, 5px);
             }
             #middle {
                 opacity: 0;
             }
             #lower {
-                transform: rotate(-45deg) translate(6.5px, -7px);
+                transform: rotate(-45deg) translate(6.5px, -6px);
 
             }
         }
@@ -142,18 +149,67 @@ const Navbar = styled(NavbarStructure)`
             opacity: 1;
 
         }
+        &.open {
+            display: block;
+            opacity: 1;
+        }
+        
+
+        
 
     }
     // GOOD ONE
-    /* @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1000px) {
         #menu {
+            position: fixed;
             display: flex;
         }
 
         nav {
             display: none;
-        }
-    } */
+            width: 100%;
+            height: 100%;
+
+            background-color: #ffffffed;
+            transition: opacity 0.3s;
+
+
+            ul {
+                height: 100vh;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: center;
+                padding-left: 20vw;
+
+                li {
+                    width: 50vw;                    
+                    padding-bottom: 0;
+                    text-indent: 2vw;
+                    transition: padding-bottom 0s, background-color 0.3s, color 0.3s;
+                    a {
+                        font-size: 2em;
+                        font-weight: bold;
+
+                        &::after {
+                            content: "";
+                            display: none;
+                        }
+
+
+                    }
+                    &:hover,
+                    &:focus {
+                        padding-bottom: 0;
+                        background-color: #ff5d30;
+                        color: #fff;
+                        
+                    }
+                }
+            }
+        
+        } 
+        
+    }
 
     /* @media screen and (max-width: 500px) {
         #menu {
